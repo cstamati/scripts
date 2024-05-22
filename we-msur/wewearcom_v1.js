@@ -1,19 +1,9 @@
-if (!window.dataLayer) {
-	window.dataLayer = [
-		{
-			pagePostType2: "single-product"
-		}
-	];
-}
-
-var appBaseUrl = "https://dev-we-msur.vercel.app";
-var wwcms =
-	"https://unpkg.com/@wewear/cms-client@1.0.3/dist/wewear-cms-client.umd.js";
-var wcs =
-	"https://unpkg.com/@wewear/web-components@1.0.5/dist/wewear-web-components.umd.js";
+const appBaseUrl = "https://dev-we-msur.vercel.app";
+const wwcms = "https://unpkg.com/@wewear/cms-client@1.0.3/dist/wewear-cms-client.umd.js";
+const wcs = "https://unpkg.com/@wewear/web-components@1.0.5/dist/wewear-web-components.umd.js";
 
 function appendHeadScript(src, type = "module", onLoaded = null) {
-	var script = document.createElement("script");
+	const script = document.createElement("script");
 	script.src = src;
 	script.type = type;
 	if (onLoaded) {
@@ -23,7 +13,7 @@ function appendHeadScript(src, type = "module", onLoaded = null) {
 }
 
 function findProductSku() {
-	var sku = document.querySelector(".sku")?.innerHTML;
+	const sku = document.querySelector(".sku")?.innerHTML;
 	if (sku) {
 		return sku;
 	}
@@ -32,7 +22,7 @@ function findProductSku() {
 }
 
 function findProductImageUrl() {
-	var imageElement = document.querySelector(".wp-post-image");
+	const imageElement = document.querySelector(".wp-post-image");
 	if (imageElement && imageElement.tagName.toLowerCase() === "img") {
 		return imageElement.src;
 	}
@@ -41,7 +31,7 @@ function findProductImageUrl() {
 }
 
 function findProductName() {
-	var el = document.querySelector(".product_title")?.innerHTML;
+	const el = document.querySelector(".product_title")?.innerHTML;
 	if (el) {
 		return el;
 	}
@@ -50,7 +40,7 @@ function findProductName() {
 }
 
 function findContainer() {
-	var el = document.querySelector(".nm-product-summary-inner-col");
+	const el = document.querySelector(".nm-product-summary-inner-col");
 	if (el) {
 		return el;
 	}
@@ -63,8 +53,8 @@ function delay(ms) {
 }
 
 async function isPageDataLoaded() {
-	var maxAttempts = 10;
-	var attempts = 0;
+	const maxAttempts = 10;
+	let attempts = 0;
 
 	while (attempts < maxAttempts) {
 		attempts++;
@@ -101,8 +91,8 @@ async function init() {
 		return;
 	}
 
-	var container = findContainer();
-	var visitor = dataLayer[0].visitorUsername;
+	const container = findContainer();
+	const visitor = dataLayer[0].visitorUsername;
 	dataLayer[0].brandUserId = visitor ? visitor : "";
 	dataLayer[0].productName = findProductName();
 	dataLayer[0].productImageUrl = findProductImageUrl();
