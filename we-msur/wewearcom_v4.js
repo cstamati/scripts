@@ -1,6 +1,20 @@
+if (!window.dataLayer) {
+	window.dataLayer = [
+		{
+			pagePostType2: "single-product",
+			language: "en",
+			visitorUsername: "255a6dde-4155-4622-8057-ccc1e2ccf274",
+			domain: "https://wewearecom.biz",
+			debugMode: true
+		}
+	];
+}
+
 const appBaseUrl = "https://dev-we-msur.vercel.app";
-const wwcms = "https://unpkg.com/@wewear/cms-client@1.0.3/dist/wewear-cms-client.umd.js";
-const wcs = "https://unpkg.com/@wewear/web-components@1.0.6/dist/wewear-web-components.umd.js";
+const wwcms =
+	"https://unpkg.com/@wewear/cms-client@1.0.10/dist/wewear-cms-client.umd.js";
+const wcs =
+	"https://unpkg.com/@wewear/web-components@1.0.7/dist/wewear-web-components.umd.js";
 
 function appendHeadScript(src, type = "module", onLoaded = null) {
 	const script = document.createElement("script");
@@ -45,6 +59,15 @@ function findContainer() {
 		return el;
 	}
 	console.error("Container not found");
+	return null;
+}
+
+function findImageContainer() {
+	const el = document.querySelector(".woocommerce-product-gallery__wrapper");
+	if (el) {
+		return el;
+	}
+	console.error("Product img container not found");
 	return null;
 }
 
@@ -98,10 +121,19 @@ async function init() {
 	dataLayer[0].productImageUrl = findProductImageUrl();
 	dataLayer[0].sku = findProductSku();
 	dataLayer[0].appBaseUrl = appBaseUrl;
-	dataLayer[0].domain = window.location.origin;
+	if (!dataLayer[0].domain) {
+		dataLayer[0].domain = window.location.origin;
+	}
 	WeWearWebComponents.setupSizeSuggestion(container);
-}
 
+	const pic = findImageContainer();
+
+	if (!pic) {
+		return;
+	}
+
+	WeWearWebComponents.addClosetButton(pic);
+}
 
 appendHeadScript(wwcms, "module", () => {
 	appendHeadScript(wcs, "module", init);
