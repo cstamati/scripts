@@ -14,7 +14,7 @@ const appBaseUrl = "https://dev-we-msur.vercel.app";
 const wwcms =
 	"https://unpkg.com/@wewear/cms-client@1.0.10/dist/wewear-cms-client.umd.js";
 const wcs =
-	"https://unpkg.com/@wewear/web-components@1.0.8/dist/wewear-web-components.umd.js";
+	"https://unpkg.com/@wewear/web-components@1.0.9/dist/wewear-web-components.umd.js";
 
 function appendHeadScript(src, type = "module", onLoaded = null) {
 	const script = document.createElement("script");
