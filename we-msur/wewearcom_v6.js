@@ -124,6 +124,9 @@ async function init() {
 	if (!dataLayer[0].domain) {
 		dataLayer[0].domain = window.location.origin;
 	}
+
+	setTimeour(() => {
+
 	WeWearWebComponents.setupSizeSuggestion(container);
 
 	const pic = findImageContainer();
@@ -133,6 +136,10 @@ async function init() {
 	}
 
 	WeWearWebComponents.addClosetButton(pic);
+		
+	}, 500)
+	
+
 }
 
 appendHeadScript(wwcms, "module", () => {
