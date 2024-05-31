@@ -10,7 +10,7 @@ if (!window.dataLayer) {
 	];
 }
 
-const appBaseUrl = "https://dev-we-msur.vercel.app";
+const appBaseUrl = "https://we-msur.vercel.app";
 const wwcms =
 	"https://unpkg.com/@wewear/cms-client@1.0.10/dist/wewear-cms-client.umd.js";
 const wcs =
