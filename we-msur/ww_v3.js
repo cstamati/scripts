@@ -13,7 +13,7 @@ if (debug) {
 }
 const appBaseUrl = debug
     ? `https://localhost:3000`
-    : "https://dev-we-msur.vercel.app";
+    : "https://we-msur.vercel.app";
 const wwcms = debug
     ? "/node_modules/@wewear/cms-client/dist/wewear-cms-client.umd.js"
     : "https://unpkg.com/@wewear/cms-client@1.0.23/dist/wewear-cms-client.umd.js";
