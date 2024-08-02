@@ -523,7 +523,7 @@ async function init() {
     dataLayer[0].language = "en";
     dataLayer[0].modelHeight = 180;
     dataLayer[0].modelSize = "M";
-    dataLayer[0].productFit = "Regular";
+    dataLayer[0].productFit = "regular";
     if (!dataLayer[0].brandDomain) {
         dataLayer[0].brandDomain = window.location.origin;
     }
