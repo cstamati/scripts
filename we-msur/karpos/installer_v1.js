@@ -122,8 +122,7 @@ async function WeWearInit() {
         domain: origin,
         debugMode: false,
         language: installer.getLanguage(),
-        // for karpos
-        adjustAfterRefine: false
+        adjustAfterRefine: true
     };
     console.log("Loading wewear size flow ", config);
     WeWearWebComponents.init(config);
