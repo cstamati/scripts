@@ -487,18 +487,7 @@ async function isPageDataLoaded() {
 }
 
 
-const whiteList = ["la-sportiva"];
-
 async function init() {
-    const path = window.location.pathname; // Corrected 'windows' to 'window'
-
-    // Check if any whitelisted string is in the pathname
-    if (!whiteList.some(item => path.includes(item))) {
-        return; // Exit the function if pathname doesn't match
-    }
-
-    console.log("Path is whitelisted, continuing execution...");
-    
     var _a;
     const config = getConfig();
     addStylesheet(config.style);
