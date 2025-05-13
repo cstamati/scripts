@@ -105,13 +105,8 @@ const wwConfig = {
         style: oldStyling,
         scripts: [
             {
-                description: "CMS client",
-                src: "https://unpkg.com/@wewear/cms-client@1.0.25/dist/wewear-cms-client.umd.js",
-                type: "module",
-            },
-            {
                 description: "WEB COMPONENTS",
-                src: "https://unpkg.com/@wewear/web-components@1.0.29/dist/wewear-web-components.umd.js",
+                src: "https://unpkg.com/@wewear/web-components@1.0.69/dist/wewear-web-components.umd.js",
                 type: "module",
             },
         ],
